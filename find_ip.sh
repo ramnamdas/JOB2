@@ -1,4 +1,5 @@
 #!/bin/bash
+rm -rf /var/lib/jenkins/elastic.txt
 elasticsearch_ip=`aws ec2 describe-instances --filter "Name=instance-state-name,Values=running" "Name=tag:Name,Values=elastic" | grep -i "privateipaddress" | head -n1 | cut -d '"' -f4`
 
 echo "[elastic]" > /var/lib/jenkins/myip.txt
